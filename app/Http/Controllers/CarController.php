@@ -14,7 +14,7 @@ class CarController extends Controller
         $mark = $request->query('mark');
         $model = $request->query('model');
 
-        $cars = Car::where('mark', $mark)->OrWhere('title', $model);
-        return response()->json(CarShowResource::collection($cars))->setStatusCode(200, 'Успешно');
+        $cars = Car::where('mark', $mark)->OrWhere('title', $model)->get();
+        return ['data' => ['items' => CarShowResource::collection($cars)]];
     }
 }

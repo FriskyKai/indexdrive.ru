@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\BranchController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -21,3 +23,5 @@ Route::post('/register', [UserController::class, 'create']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/cars', [CarController::class, 'show']);
+Route::get('/branch', [BranchController::class, 'show']);
+Route::post('/booking', [BookingController::class, 'create']);

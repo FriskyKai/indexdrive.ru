@@ -13,4 +13,12 @@ class BookingCar extends Model
         'car_id',
         'booking_id',
     ];
+
+    public function booking() {
+        return $this->belongsTo(Booking::class);
+    }
+
+    public function car() {
+        return $this->belongsTo(Car::class);
+    }
 }

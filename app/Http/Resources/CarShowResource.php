@@ -15,13 +15,13 @@ class CarShowResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $request->id,
-            'mark' => $request->mark,
-            'title' => $request->title,
-            'car_number' => $request->car_number,
-            'branch_id' => $request->branch_id,
-            'price' => $request->price,
-            'branch' => $request->branch
+            'id' => $this->id,
+            'mark' => $this->mark,
+            'title' => $this->title,
+            'car_number' => $this->car_number,
+            'branch_id' => $this->branch_id,
+            'price' => $this->price,
+            'branch' => $this->branch
         ];
     }
 }

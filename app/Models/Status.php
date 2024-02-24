@@ -12,4 +12,8 @@ class Status extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function bookings() {
+        return $this->hasMany(Booking::class);
+    }
 }

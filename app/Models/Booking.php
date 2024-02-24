@@ -16,4 +16,16 @@ class Booking extends Model
         'end_date',
         'status',
     ];
+
+    public function bookingCars() {
+        return $this->hasMany(BookingCar::class);
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function status() {
+        return $this->belongsTo(Status::class);
+    }
 }
