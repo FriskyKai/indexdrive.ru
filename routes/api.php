@@ -22,6 +22,14 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [UserController::class, 'create']);
 Route::post('/login', [AuthController::class, 'login']);
 
-Route::get('/cars', [CarController::class, 'show']);
-Route::get('/branch', [BranchController::class, 'show']);
-Route::post('/booking', [BookingController::class, 'create']);
+Route::middleware(['auth:api'])->group(function () {
+    Route::get('/cars', [CarController::class, 'show']);
+    Route::get('/branch', [BranchController::class, 'show']);
+    Route::post('/booking', [BookingController::class, 'create']);
+    Route::get('/profile', [UserController::class, 'show']);
+    Route::get('/booking/history', [BookingController::class, 'historyShow']);
+    Route::get('/booking/active', [BookingController::class, 'active']);
+    Route::get('/booking/{code}', [BookingController::class, 'show']);
+    Route::patch('/booking/{code}/close', [BookingController::class, 'close']);
+});
+
